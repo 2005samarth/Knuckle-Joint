@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Knuckle Joint Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="center-screen">
+        <h1>Enter Knuckle Joint Parameters</h1>
+        <form action="/do_predict" method="post">
+            <input type="number" step="1" name="load" placeholder="Load (N)" required>
+            <input type="number" step="0.1" name="yield_strength" placeholder="Yield Strength (MPa)" required>
+            <input type="number" step="0.01" name="fos" placeholder="Factor of Safety" required>
+            <button class="btn">Predict</button>
+        </form>
+        {% if result %}
+        <h2>Prediction Results</h2>
+        <table>
+            <tr><th>Output</th><th>Value</th></tr>
+            {% for key, value in result.items() %}
+            <tr>
+                <td>{{ key }}</td>
+                <td>{{ value }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+</body>
+</html>

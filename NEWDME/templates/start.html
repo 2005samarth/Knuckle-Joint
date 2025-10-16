@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AIML Knuckle Joint Designer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="center-screen">
+        <h1>Knuckle Joint AIML Designer</h1>
+        <form action="/generate" method="post">
+            <button class="btn">Generate Knuckle Joint Dataset (10,000 Points)</button>
+        </form>
+        <h2>Or Upload Your Own Dataset</h2>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button class="btn">Upload and Train Model</button>
+        </form>
+    </div>
+</body>
+</html>
